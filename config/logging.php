@@ -12,9 +12,15 @@ return [
     | Default Log Channel
     |--------------------------------------------------------------------------
     |
+<<<<<<< HEAD
     | This option defines the default log channel that is utilized to write
     | messages to your logs. The value provided here should match one of
     | the channels present in the list of "channels" configured below.
+=======
+    | This option defines the default log channel that gets used when writing
+    | messages to the logs. The name specified in this option should match
+    | one of the channels defined in the "channels" configuration array.
+>>>>>>> 95f23c6410822de96935fe2fddd9cd3957c76717
     |
     */
 
@@ -33,7 +39,11 @@ return [
 
     'deprecations' => [
         'channel' => env('LOG_DEPRECATIONS_CHANNEL', 'null'),
+<<<<<<< HEAD
         'trace' => env('LOG_DEPRECATIONS_TRACE', false),
+=======
+        'trace' => false,
+>>>>>>> 95f23c6410822de96935fe2fddd9cd3957c76717
     ],
 
     /*
@@ -41,20 +51,36 @@ return [
     | Log Channels
     |--------------------------------------------------------------------------
     |
+<<<<<<< HEAD
     | Here you may configure the log channels for your application. Laravel
     | utilizes the Monolog PHP logging library, which includes a variety
     | of powerful log handlers and formatters that you're free to use.
     |
     | Available drivers: "single", "daily", "slack", "syslog",
     |                    "errorlog", "monolog", "custom", "stack"
+=======
+    | Here you may configure the log channels for your application. Out of
+    | the box, Laravel uses the Monolog PHP logging library. This gives
+    | you a variety of powerful log handlers / formatters to utilize.
+    |
+    | Available Drivers: "single", "daily", "slack", "syslog",
+    |                    "errorlog", "monolog",
+    |                    "custom", "stack"
+>>>>>>> 95f23c6410822de96935fe2fddd9cd3957c76717
     |
     */
 
     'channels' => [
+<<<<<<< HEAD
 
         'stack' => [
             'driver' => 'stack',
             'channels' => explode(',', env('LOG_STACK', 'single')),
+=======
+        'stack' => [
+            'driver' => 'stack',
+            'channels' => ['single'],
+>>>>>>> 95f23c6410822de96935fe2fddd9cd3957c76717
             'ignore_exceptions' => false,
         ],
 
@@ -69,15 +95,24 @@ return [
             'driver' => 'daily',
             'path' => storage_path('logs/laravel.log'),
             'level' => env('LOG_LEVEL', 'debug'),
+<<<<<<< HEAD
             'days' => env('LOG_DAILY_DAYS', 14),
+=======
+            'days' => 14,
+>>>>>>> 95f23c6410822de96935fe2fddd9cd3957c76717
             'replace_placeholders' => true,
         ],
 
         'slack' => [
             'driver' => 'slack',
             'url' => env('LOG_SLACK_WEBHOOK_URL'),
+<<<<<<< HEAD
             'username' => env('LOG_SLACK_USERNAME', 'Laravel Log'),
             'emoji' => env('LOG_SLACK_EMOJI', ':boom:'),
+=======
+            'username' => 'Laravel Log',
+            'emoji' => ':boom:',
+>>>>>>> 95f23c6410822de96935fe2fddd9cd3957c76717
             'level' => env('LOG_LEVEL', 'critical'),
             'replace_placeholders' => true,
         ],
@@ -108,7 +143,11 @@ return [
         'syslog' => [
             'driver' => 'syslog',
             'level' => env('LOG_LEVEL', 'debug'),
+<<<<<<< HEAD
             'facility' => env('LOG_SYSLOG_FACILITY', LOG_USER),
+=======
+            'facility' => LOG_USER,
+>>>>>>> 95f23c6410822de96935fe2fddd9cd3957c76717
             'replace_placeholders' => true,
         ],
 
@@ -126,7 +165,10 @@ return [
         'emergency' => [
             'path' => storage_path('logs/laravel.log'),
         ],
+<<<<<<< HEAD
 
+=======
+>>>>>>> 95f23c6410822de96935fe2fddd9cd3957c76717
     ],
 
 ];

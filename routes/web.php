@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
+<<<<<<< HEAD
 Route::get('/', function () {
     return view('welcome');
 });
@@ -20,3 +21,19 @@ Route::get('/resultados', function () {
 Route::get('/Trabalhos', function () {
     return view('Trabalhos.index');
 })->name('Trabalhos');
+=======
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider and all of them will
+| be assigned to the "web" middleware group. Make something great!
+|
+*/
+
+Route::get('/', function () {
+    return view('welcome');
+});
+>>>>>>> 95f23c6410822de96935fe2fddd9cd3957c76717

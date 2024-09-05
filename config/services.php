@@ -14,6 +14,16 @@ return [
     |
     */
 
+<<<<<<< HEAD
+=======
+    'mailgun' => [
+        'domain' => env('MAILGUN_DOMAIN'),
+        'secret' => env('MAILGUN_SECRET'),
+        'endpoint' => env('MAILGUN_ENDPOINT', 'api.mailgun.net'),
+        'scheme' => 'https',
+    ],
+
+>>>>>>> 95f23c6410822de96935fe2fddd9cd3957c76717
     'postmark' => [
         'token' => env('POSTMARK_TOKEN'),
     ],
@@ -24,6 +34,7 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+<<<<<<< HEAD
     'resend' => [
         'key' => env('RESEND_KEY'),
     ],
@@ -35,4 +46,6 @@ return [
         ],
     ],
 
+=======
+>>>>>>> 95f23c6410822de96935fe2fddd9cd3957c76717
 ];
