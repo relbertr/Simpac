@@ -18,6 +18,14 @@
             font-size: 16px;
             margin: 10px;
             cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: white;
+            transition: background-color 0.3s;
+        }
+        .button:hover {
+            background-color: #0056b3;
         }
     </style>
 </head>
@@ -36,7 +44,6 @@
         <a href="{{ route('resultados') }}">
             <button class="button">Resultados</button>
         </a>
-
     </div>
 </body>
 </html>

@@ -7,24 +7,22 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\AvaliadorController;
 
 // Página Inicial
 Route::get('/', function () {
     return view('welcome'); // ou o nome da sua página inicial
 });
 
-// Página de Avaliadores
-Route::get('/avaliadores', function () {
-    return view('avaliadores.index'); // Página de Avaliadores
-})->name('avaliadores');
+// Página de Avaliadores (sem autenticação)
+Route::get('/avaliadores', [AvaliadorController::class, 'index'])->name('avaliadores');
 
-// Página de Resultados
-Route::get('/resultados', function () {
-    return view('resultados.index'); // Página de Resultados
-})->name('resultados');
-
-// Páginas acessíveis apenas para usuários autenticados
+// Página de Resultados, acessível apenas para usuários autenticados
 Route::middleware(['auth'])->group(function () {
+    Route::get('/resultados', function () {
+        return view('resultados.index'); // Página de Resultados
+    })->name('resultados');
+
     Route::get('/home', [HomeController::class, 'index'])->name('home');
     Route::get('/trabalhos', [TrabalhoController::class, 'index'])->name('trabalhos');
     Route::get('/cadastrar', [UserController::class, 'exibirFormulario'])->name('exibir.formulario');
@@ -42,8 +40,6 @@ Route::get('login', [LoginController::class, 'showLoginForm'])->name('login');
 Route::post('login', [LoginController::class, 'login']);
 Route::post('logout', [LoginController::class, 'logout'])->name('logout');
 
-
+// Rotas de Registro
 Route::get('register', [RegisterController::class, 'showRegistrationForm'])->name('register');
 Route::post('register', [RegisterController::class, 'register']);
-
-Route::get('/home', [HomeController::class, 'index'])->middleware('auth')->name('home');

@@ -30,7 +30,16 @@ class LoginController extends Controller
         $credentials = $request->only('email', 'password');
 
         if (Auth::attempt($credentials)) {
-            return redirect()->intended('home');
+            $user = Auth::user();
+
+            // Redireciona baseado no tipo de usuário
+            if ($user->isAvaliador()) {
+                return redirect()->route('avaliadores'); // Redireciona para a página de avaliadores
+            } elseif ($user->isAdmin()) {
+                return redirect()->route('admin'); // Redireciona para a página de admin
+            }
+
+            return redirect()->intended('/'); // Redireciona para a página inicial ou outra página padrão
         }
 
         throw ValidationException::withMessages([

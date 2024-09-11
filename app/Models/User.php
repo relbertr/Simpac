@@ -46,4 +46,9 @@ class User extends Authenticatable
     {
         return $this->is_admin; // 'is_admin' é um campo booleano na tabela 'users'
     }
+
+    public function isAvaliador()
+{
+    return $this->is_avaliador; // Supondo que você tenha uma coluna is_avaliador na tabela users
+}
 }
