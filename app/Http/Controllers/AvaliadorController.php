@@ -3,16 +3,26 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AvaliadorController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware(['auth', 'avaliador']); // Protege a rota com autenticação e verificação de avaliador
-    }
+    /**
+     * Exibe a página de aavaliadores.
+     *
+     * @return \Illuminate\View\View
+     */
+   public function index()
+   {
+       // Adicione a lógica de autorização necessária para o administrador aqui
+       // Por exemplo, você pode verificar se o usuário tem um papel de administrador
 
-    public function index()
-    {
-        return view('avaliadores.index'); // Retorna a view da página de avaliadores
-    }
+       if (Auth::check() && Auth::user()->is_avaliador) {
+           return view('avaliadores.index'); // View de administração
+       }
+
+       // Redireciona para a página inicial ou página de erro se não for autorizado
+       return redirect('/')->with('error', 'Você não tem permissão para acessar esta página.');
+   }
+
 }

@@ -18,7 +18,7 @@ class AdminController extends Controller
         // Por exemplo, você pode verificar se o usuário tem um papel de administrador
 
         if (Auth::check() && Auth::user()->is_admin) {
-            return view('admin'); // View de administração
+            return view('admin.index'); // View de administração
         }
 
         // Redireciona para a página inicial ou página de erro se não for autorizado

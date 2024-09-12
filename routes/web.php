@@ -15,7 +15,9 @@ Route::get('/', function () {
 });
 
 // Página de Avaliadores (sem autenticação)
-Route::get('/avaliadores', [AvaliadorController::class, 'index'])->name('avaliadores');
+Route::middleware(['auth'])->group(function () {
+    Route::get('/avaliadores', [AvaliadorController::class, 'index'])->name('avaliadores.index');
+});
 
 // Página de Resultados, acessível apenas para usuários autenticados
 Route::middleware(['auth'])->group(function () {
